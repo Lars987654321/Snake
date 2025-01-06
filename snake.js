@@ -8,30 +8,36 @@ let direction = "right"
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "w" || event.key === "W" || event.key === "ArrowUp"){
-        direction = "up"
+        if (direction !== "down") {
+            direction = "up" 
+        }
     } else if (event.key === "d" || event.key === "D" || event.key === "ArrowRight"){
-        direction = "right"
+        if (direction !== "left") {
+            direction = "right" 
+        }
     } else if (event.key === "s" || event.key === "S" || event.key === "ArrowDown"){
-        direction = "down"
+        if (direction !== "up") {
+            direction = "down" 
+        }
     } else if (event.key === "a" || event.key === "A" || event.key === "ArrowLeft"){
-        direction = "left"
+        if (direction !== "right") {
+            direction = "left" 
+        }
     }
 })
 
 function movement() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillRect(x, y, 30, 30)
+    ctx.fillRect(x, y, 40, 40)
     if (direction === "up") {
-        y-=1
+        y-=40
     } else if (direction === "right") {
-        x+=1
+        x+=40
     } else if (direction === "down") {
-        y+=1
+        y+=40
     } else if (direction === "left") {
-        x-=1
+        x-=40
     }
-
-    requestAnimationFrame(movement)
 }
 
-movement()
+setInterval(movement, 180)
