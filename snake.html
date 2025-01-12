@@ -13,13 +13,11 @@
         flex-direction: column;
     }
 
-    canvas{
-        background: 
-            linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
-            linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
-            background-size: 80px 80px;
-            background-position: 0 0, 40px 40px;
-    }
+    canvas {
+  background:
+    repeating-conic-gradient(#64d25e 0% 25%, transparent 0% 50%) 0% 0% / 80px 80px,
+    repeating-conic-gradient(#398935 0% 25%, transparent 0% 50%) 0% / 80px 80px;
+}
 </style>
 <body>
     <h1>Snake game</h1>
