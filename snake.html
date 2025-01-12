@@ -1,27 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
 </head>
 <style>
-    body{
+    body {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background: radial-gradient(circle, #ecf6da 10%, transparent 50%), #9cc66e;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        height: 100%;
     }
 
     canvas {
-  background:
-    repeating-conic-gradient(#64d25e 0% 25%, transparent 0% 50%) 0% 0% / 80px 80px,
-    repeating-conic-gradient(#398935 0% 25%, transparent 0% 50%) 0% / 80px 80px;
-}
+        background:
+            repeating-conic-gradient(#64d25e 0% 25%, transparent 0% 50%) 0% 0% / 80px 80px,
+            repeating-conic-gradient(#398935 0% 25%, transparent 0% 50%) 0% / 80px 80px;
+    }
+
+    .setup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100vw;
+        height: 75vh;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scorediv {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    button {
+        height: 125px;
+        width: 250px;
+        border-radius: 20px;
+        font-size: 60px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: #add8e6;
+    }
+
+    button:hover {
+        background-color: #4b8ca1;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .score {
+        height: 50%;
+    }
+
+    .highscores {
+        height: 50%;
+    }
 </style>
+
 <body>
     <h1>Snake game</h1>
-    <canvas id="canvas" style="border: 2px solid black;" height="480" width="480"></canvas>
+    <div class="setup">
+        <div class="scorediv">
+            <div class="score">
+                <h1 id="score">score: 0</h1>
+            </div>
+            <div class="highscores">
+                <h1>highscores</h1>
+                <ul id="highscores">
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <canvas id="canvas" style="border: 2px solid black;" height="480" width="480"></canvas>
+            <div id="overlay"
+                style="display: block; position: absolute; width: 480px; height: 480px; background: rgba(0, 0, 0, 0.5); top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            </div>
+            <button id="button"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">Play</button>
+        </div>
+        <div class="content"></div>
+    </div>
     <script src="snake.js"></script>
 </body>
+
 </html>
